@@ -186,7 +186,7 @@ h1 { font-size: clamp(2rem, 4vw, 3.3rem); line-height: 1.04; letter-spacing: -.0
 .footer-note { color: var(--muted); font-size: .75rem; margin: 0; }
 .mobile-nav { display: none; }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .site-shell { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
   .topbar { height: 62px; padding: 0 16px; }
   .brand { font-size: 1.12rem; }
