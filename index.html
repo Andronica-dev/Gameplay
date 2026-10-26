@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gameplay</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Cloudflare Web Analytics: add your official beacon snippet here after enabling it in Cloudflare. -->
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" data-page="home" aria-label="Gameplay home">
+        <span class="brand-mark" aria-hidden="true">↗</span><span>Gameplay</span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-button" aria-label="Search" id="search-toggle">⌕</button>
+        <button class="icon-button menu-toggle" aria-label="Open navigation" id="menu-toggle">☰</button>
+      </div>
+    </header>
+
+    <div class="search-panel" id="search-panel" hidden>
+      <input type="search" placeholder="Search placeholder…" aria-label="Search">
+      <button class="small-button" type="button">Search</button>
+    </div>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <button class="nav-link active" data-page="home">Home</button>
+      <button class="nav-link" data-page="articles">Articles</button>
+      <button class="nav-link" data-page="categories">Categories</button>
+      <button class="nav-link" data-page="quests">Quests</button>
+      <button class="nav-link" data-page="community">Community</button>
+      <button class="nav-link" data-page="profile">Profile</button>
+    </nav>
+
+    <main>
+      <!-- HOME -->
+      <section class="page active" id="page-home" aria-labelledby="home-title">
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">YOUR GREEN-LIVING SPACE</span>
+            <h1 id="home-title">Small steps.<br><span>Real progress.</span></h1>
+            <p class="placeholder-line wide"></p>
+            <p class="placeholder-line medium"></p>
+            <button class="primary-button" data-go="articles">Explore articles <span>→</span></button>
+          </div>
+          <div class="hero-image image-landscape" role="img" aria-label="Landscape image placeholder">
+            <span class="image-placeholder-icon">⌁</span>
+          </div>
+        </div>
+
+        <div class="quick-grid">
+          <button class="quick-tile" data-go="categories"><span class="quick-icon">♧</span><span class="placeholder-line short"></span></button>
+          <button class="quick-tile" data-go="categories"><span class="quick-icon">ϟ</span><span class="placeholder-line short"></span></button>
+          <button class="quick-tile" data-go="categories"><span class="quick-icon">◉</span><span class="placeholder-line short"></span></button>
+          <button class="quick-tile" data-go="categories"><span class="quick-icon">⌂</span><span class="placeholder-line short"></span></button>
+        </div>
+
+        <section class="content-section">
+          <div class="section-heading"><h2>Featured</h2><button class="text-link" data-go="articles">View all →</button></div>
+          <div class="feature-card">
+            <div class="feature-image image-seedling" role="img" aria-label="Featured image placeholder"><span class="image-placeholder-icon">⌁</span></div>
+            <div class="card-body">
+              <span class="tag placeholder-tag"></span>
+              <div class="placeholder-line wide"></div>
+              <div class="placeholder-line medium"></div>
+              <div class="card-meta"><span class="placeholder-line short"></span><span class="placeholder-line short"></span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="section-heading"><h2>Explore categories</h2><button class="text-link" data-go="categories">View all →</button></div>
+          <div class="category-mini-grid">
+            <button class="category-mini" data-go="categories"><span>♧</span><i></i></button>
+            <button class="category-mini" data-go="categories"><span>ϟ</span><i></i></button>
+            <button class="category-mini" data-go="categories"><span>◉</span><i></i></button>
+            <button class="category-mini" data-go="categories"><span>⌂</span><i></i></button>
+          </div>
+        </section>
+      </section>
+
+      <!-- ARTICLES LIST -->
+      <section class="page" id="page-articles" aria-labelledby="articles-title">
+        <div class="page-heading"><span class="eyebrow">THE LIBRARY</span><h1 id="articles-title">Articles</h1><div class="placeholder-line medium"></div></div>
+        <div class="filter-row"><button class="filter-chip selected">All</button><button class="filter-chip">Category</button><button class="filter-chip">Category</button><button class="filter-chip">Category</button></div>
+        <div class="article-grid">
+          <article class="article-card"><div class="card-image image-seedling"><span class="image-placeholder-icon">⌁</span></div><div class="card-body"><span class="tag"></span><div class="placeholder-line wide"></div><div class="placeholder-line medium"></div><div class="card-meta"><span class="placeholder-line short"></span><span class="placeholder-line short"></span></div><button class="read-card" data-go="article-detail" aria-label="Open article">→</button></div></article>
+          <article class="article-card"><div class="card-image image-solar"><span class="image-placeholder-icon">⌁</span></div><div class="card-body"><span class="tag"></span><div class="placeholder-line wide"></div><div class="placeholder-line medium"></div><div class="card-meta"><span class="placeholder-line short"></span><span class="placeholder-line short"></span></div><button class="read-card" data-go="article-detail" aria-label="Open article">→</button></div></article>
+          <article class="article-card"><div class="card-image image-water"><span class="image-placeholder-icon">⌁</span></div><div class="card-body"><span class="tag"></span><div class="placeholder-line wide"></div><div class="placeholder-line medium"></div><div class="card-meta"><span class="placeholder-line short"></span><span class="placeholder-line short"></span></div><button class="read-card" data-go="article-detail" aria-label="Open article">→</button></div></article>
+          <article class="article-card"><div class="card-image image-bike"><span class="image-placeholder-icon">⌁</span></div><div class="card-body"><span class="tag"></span><div class="placeholder-line wide"></div><div class="placeholder-line medium"></div><div class="card-meta"><span class="placeholder-line short"></span><span class="placeholder-line short"></span></div><button class="read-card" data-go="article-detail" aria-label="Open article">→</button></div></article>
+        </div>
+      </section>
+
+      <!-- ARTICLE DETAIL -->
+      <section class="page" id="page-article-detail" aria-labelledby="article-detail-title">
+        <button class="back-link" data-go="articles">← Back to articles</button>
+        <article class="article-detail">
+          <div class="detail-image image-landscape"><span class="image-placeholder-icon">⌁</span></div>
+          <div class="detail-content">
+            <span class="tag"></span>
+            <h1 id="article-detail-title" class="skeleton-heading"><span></span><span></span></h1>
+            <div class="byline"><span class="avatar"></span><div class="placeholder-line medium"></div><div class="placeholder-line short"></div></div>
+            <div class="article-skeleton">
+              <div class="placeholder-line wide"></div><div class="placeholder-line wide"></div><div class="placeholder-line medium"></div>
+              <div class="skeleton-image"></div>
+              <div class="placeholder-line wide"></div><div class="placeholder-line wide"></div><div class="placeholder-line medium"></div>
+              <div class="skeleton-image small"></div>
+              <div class="placeholder-line wide"></div><div class="placeholder-line medium"></div>
+            </div>
+          </div>
+        </article>
+        <section class="content-section comments">
+          <div class="section-heading"><h2>Comments</h2><span class="comment-count">—</span></div>
+          <div class="comment-placeholder"><span class="avatar"></span><div class="placeholder-line wide"></div><button class="round-action" aria-label="Submit comment">↑</button></div>
+          <div class="placeholder-comment"><span class="avatar"></span><div><div class="placeholder-line medium"></div><div class="placeholder-line wide"></div></div></div>
+        </section>
+      </section>
+
+      <!-- CATEGORIES -->
+      <section class="page" id="page-categories" aria-labelledby="categories-title">
+        <div class="page-heading"><span class="eyebrow">FIND YOUR NEXT READ</span><h1 id="categories-title">Categories</h1><div class="placeholder-line medium"></div></div>
+        <div class="categories-grid">
+          <button class="category-card" data-go="articles"><div class="category-photo image-seedling"><span>♧</span></div><div class="category-card-foot"><div class="placeholder-line medium"></div><b>→</b></div></button>
+          <button class="category-card" data-go="articles"><div class="category-photo image-solar"><span>ϟ</span></div><div class="category-card-foot"><div class="placeholder-line medium"></div><b>→</b></div></button>
+          <button class="category-card" data-go="articles"><div class="category-photo image-water"><span>◉</span></div><div class="category-card-foot"><div class="placeholder-line medium"></div><b>→</b></div></button>
+          <button class="category-card" data-go="articles"><div class="category-photo image-home"><span>⌂</span></div><div class="category-card-foot"><div class="placeholder-line medium"></div><b>→</b></div></button>
+          <button class="category-card" data-go="articles"><div class="category-photo image-money"><span>●</span></div><div class="category-card-foot"><div class="placeholder-line medium"></div><b>→</b></div></button>
+          <button class="category-card" data-go="articles"><div class="category-photo image-community"><span>♧</span></div><div class="category-card-foot"><div class="placeholder-line medium"></div><b>→</b></div></button>
+        </div>
+      </section>
+
+      <!-- QUESTS -->
+      <section class="page" id="page-quests" aria-labelledby="quests-title">
+        <div class="page-heading"><span class="eyebrow">YOUR NEXT CHALLENGE</span><h1 id="quests-title">Quests</h1><div class="placeholder-line medium"></div></div>
+        <div class="quest-hero">
+          <div class="quest-art"><span class="quest-number">#01</span><span class="quest-leaf">♧</span></div>
+          <div class="quest-copy"><span class="quest-status"><span class="status-dot"></span> ACTIVE</span><h2 class="skeleton-heading"><span></span><span></span></h2><div class="placeholder-line wide"></div><div class="placeholder-line medium"></div></div>
+        </div>
+        <div class="progress-card">
+          <div class="section-heading"><h2>Progress</h2><span class="tiny-muted">— / — tasks</span></div>
+          <div class="progress-track"><span style="width: 42%"></span></div>
+          <div class="stats-grid"><div class="stat"><span class="stat-icon">✦</span><div class="placeholder-line short"></div><strong>—</strong></div><div class="stat"><span class="stat-icon">♜</span><div class="placeholder-line short"></div><strong>—</strong></div><div class="stat"><span class="stat-icon">◷</span><div class="placeholder-line short"></div><strong>—</strong></div></div>
+        </div>
+        <section class="content-section">
+          <div class="section-heading"><h2>Quest tasks</h2><span class="tiny-muted">Checklist</span></div>
+          <div class="task-list">
+            <label class="task-row"><input type="checkbox"><span class="task-check"></span><span class="task-lines"><i></i><i></i></span><b>›</b></label>
+            <label class="task-row"><input type="checkbox"><span class="task-check"></span><span class="task-lines"><i></i><i></i></span><b>›</b></label>
+            <label class="task-row"><input type="checkbox"><span class="task-check"></span><span class="task-lines"><i></i><i></i></span><b>›</b></label>
+          </div>
+        </section>
+      </section>
+
+      <!-- COMMUNITY -->
+      <section class="page" id="page-community" aria-labelledby="community-title">
+        <div class="page-heading"><span class="eyebrow">TOGETHER, WE GROW</span><h1 id="community-title">Community</h1><div class="placeholder-line medium"></div></div>
+        <div class="segmented"><button class="selected">Comments</button><button>Discussions</button><button>Members</button></div>
+        <div class="community-list">
+          <article class="community-post"><span class="avatar"></span><div class="post-main"><div class="post-top"><div class="placeholder-line medium"></div><span class="tiny-muted">—</span></div><div class="placeholder-line wide"></div><div class="placeholder-line medium"></div><div class="post-actions"><span>♡ —</span><span>↗ —</span></div></div></article>
+          <article class="community-post"><span class="avatar"></span><div class="post-main"><div class="post-top"><div class="placeholder-line medium"></div><span class="tiny-muted">—</span></div><div class="placeholder-line wide"></div><div class="placeholder-line medium"></div><div class="post-actions"><span>♡ —</span><span>↗ —</span></div></div></article>
+          <article class="community-post"><span class="avatar"></span><div class="post-main"><div class="post-top"><div class="placeholder-line medium"></div><span class="tiny-muted">—</span></div><div class="placeholder-line wide"></div><div class="placeholder-line short"></div><div class="post-actions"><span>♡ —</span><span>↗ —</span></div></div></article>
+        </div>
+        <div class="comment-placeholder"><span class="avatar"></span><div class="placeholder-line wide"></div><button class="round-action" aria-label="Post comment">↑</button></div>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="page" id="page-profile" aria-labelledby="profile-title">
+        <div class="profile-top">
+          <div class="profile-avatar">○</div>
+          <div class="profile-info"><h1 id="profile-title" class="skeleton-heading"><span></span></h1><div class="placeholder-line medium"></div><span class="level-label">LEVEL —</span></div>
+          <button class="icon-button" aria-label="Settings">⚙</button>
+        </div>
+        <div class="level-progress"><div class="progress-track"><span style="width: 35%"></span></div><span class="tiny-muted">— / — XP</span></div>
+        <section class="content-section">
+          <div class="section-heading"><h2>Achievements</h2><button class="text-link">View all →</button></div>
+          <div class="badges-row">
+            <div class="achievement"><span>♧</span><i></i></div><div class="achievement"><span>ϟ</span><i></i></div><div class="achievement"><span>◉</span><i></i></div><div class="achievement"><span>⌂</span><i></i></div><div class="achievement"><span>●</span><i></i></div>
+          </div>
+        </section>
+        <section class="content-section">
+          <div class="section-heading"><h2>Progress</h2></div>
+          <div class="progress-circles">
+            <div class="circle-stat"><div class="progress-circle" style="--progress:60%"><b>—</b></div><span class="placeholder-line short"></span></div>
+            <div class="circle-stat"><div class="progress-circle" style="--progress:40%"><b>—</b></div><span class="placeholder-line short"></span></div>
+            <div class="circle-stat"><div class="progress-circle" style="--progress:25%"><b>—</b></div><span class="placeholder-line short"></span></div>
+            <div class="circle-stat"><div class="progress-circle" style="--progress:15%"><b>—</b></div><span class="placeholder-line short"></span></div>
+          </div>
+        </section>
+        <section class="content-section">
+          <div class="section-heading"><h2>Saved articles</h2><button class="text-link" data-go="articles">View all →</button></div>
+          <div class="saved-grid"><div class="saved-card"><div class="saved-image"></div><div class="placeholder-line medium"></div><div class="placeholder-line short"></div></div><div class="saved-card"><div class="saved-image"></div><div class="placeholder-line medium"></div><div class="placeholder-line short"></div></div></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand"><span class="brand-mark">↗</span><strong>Gameplay</strong></div>
+      <div class="footer-links"><button data-page="home">Home</button><button data-page="articles">Articles</button><button data-page="categories">Categories</button><button data-page="quests">Quests</button><button data-page="community">Community</button><button data-page="profile">Profile</button></div>
+      <p class="footer-note">Footer content placeholder</p>
+    </footer>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <button class="mobile-nav-item active" data-page="home"><span>⌂</span><small>Home</small></button>
+      <button class="mobile-nav-item" data-page="articles"><span>▤</span><small>Articles</small></button>
+      <button class="mobile-nav-item" data-page="quests"><span>◷</span><small>Quests</small></button>
+      <button class="mobile-nav-item" data-page="community"><span>♧</span><small>Community</small></button>
+      <button class="mobile-nav-item" data-page="profile"><span>○</span><small>Profile</small></button>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
