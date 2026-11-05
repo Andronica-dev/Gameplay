@@ -1713,3 +1713,55 @@ a.category-tag:hover {
     flex-direction: column;
   }
 }
+
+/* =========================================
+   DESKTOP PAGE WIDTH AND CATEGORY ALIGNMENT
+   ========================================= */
+
+@media (min-width: 761px) {
+
+  /* Give pages without a site-shell the same
+     centred width as the homepage. */
+  body > header.topbar,
+  body > main,
+  body > footer.site-footer {
+    width: min(100%, 1100px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Category banner and heading share the
+     same page gutters. */
+  .category-hero {
+    padding: 22px 24px 10px;
+  }
+
+  .category-banner {
+    width: 100%;
+    margin: 0;
+  }
+
+  .category-heading {
+    max-width: none;
+    margin: 22px 0 0;
+    padding: 0;
+  }
+
+  /* Align the Articles heading, search bar
+     and article cards to the same left edge. */
+  .library-section {
+    max-width: none;
+    margin: 0;
+    padding: 24px;
+  }
+
+  .library-section .search-panel {
+    width: min(100%, 560px);
+    margin: 0 0 20px;
+  }
+
+  .library-section .article-grid {
+    width: 100%;
+    margin: 0;
+  }
+}
