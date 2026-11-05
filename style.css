@@ -1176,4 +1176,540 @@ a.category-tag:hover {
     height: 160px;
   }
 }
+/* =========================================
+   COMMUNITY, PROFILE AND QUESTS PAGES
+   ========================================= */
 
+.standard-page {
+  width: min(100%, 1050px);
+  margin: 0 auto;
+  padding: 0 24px 50px;
+}
+
+.page-hero {
+  padding: 48px 0 32px;
+  max-width: 760px;
+}
+
+.page-hero h1 {
+  margin: 8px 0 14px;
+}
+
+.page-hero > p:last-child {
+  max-width: 680px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.standard-page .section-heading {
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.standard-page .section-heading h2 {
+  margin: 0 0 7px;
+  font-size: 1.45rem;
+}
+
+.standard-page .section-heading p:not(.eyebrow) {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.6;
+}
+
+.section-label,
+.community-status,
+.quest-status,
+.activity-status,
+.achievement-status {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 11px;
+  border-radius: 30px;
+  background: #edf4e9;
+  color: var(--green-800);
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+/* COMMUNITY */
+
+.community-welcome {
+  display: grid;
+  grid-template-columns: 1.4fr .8fr;
+  align-items: center;
+  gap: 28px;
+  padding: 28px;
+  margin-bottom: 48px;
+  border-radius: var(--radius);
+  background: #edf4e9;
+}
+
+.community-welcome h2 {
+  margin: 8px 0 12px;
+  font-size: 1.5rem;
+}
+
+.community-welcome p:not(.eyebrow) {
+  margin-bottom: 0;
+  color: #53635a;
+  line-height: 1.7;
+}
+
+.community-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.community-action .primary-button {
+  margin-top: 5px;
+}
+
+.community-action button:disabled,
+.account-card button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.community-action .feature-note {
+  margin: 0;
+}
+
+.community-discussions,
+.community-guidelines,
+.profile-activity,
+.account-section,
+.quests-section,
+.achievements-section,
+.quest-progress {
+  margin-top: 48px;
+}
+
+.community-empty {
+  padding: 48px 24px;
+  border: 1px dashed #cbd7ca;
+  border-radius: var(--radius);
+  background: white;
+  text-align: center;
+}
+
+.community-empty-icon {
+  margin-bottom: 12px;
+  color: var(--green-700);
+  font-size: 2rem;
+}
+
+.community-empty h3 {
+  margin-bottom: 8px;
+}
+
+.community-empty p {
+  max-width: 460px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.6;
+}
+
+.guidelines-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.guideline-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+}
+
+.guideline-number {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--green-700);
+  font-size: .8rem;
+  font-weight: 800;
+}
+
+.guideline-card h3 {
+  margin-bottom: 9px;
+  font-size: .95rem;
+}
+
+.guideline-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.6;
+}
+
+/* PROFILE */
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+}
+
+.profile-card .profile-avatar {
+  width: 76px;
+  height: 76px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--green-800);
+  background: #eaf2e5;
+}
+
+.profile-details h2 {
+  margin: 9px 0;
+  font-size: 1.3rem;
+}
+
+.profile-details p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.profile-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.profile-activity-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 220px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+}
+
+.profile-card-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  background: #edf4e9;
+  color: var(--green-800);
+  font-size: 1.3rem;
+}
+
+.profile-activity-card h3 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.profile-activity-card p {
+  flex: 1;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.6;
+}
+
+.account-forms {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.account-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+}
+
+.account-card h3 {
+  margin-bottom: 7px;
+  font-size: 1.15rem;
+}
+
+.account-card > p {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.account-form {
+  display: grid;
+  gap: 15px;
+  margin-top: 22px;
+}
+
+.form-group {
+  display: grid;
+  gap: 7px;
+}
+
+.form-group label {
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.form-group input {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.account-form .primary-button {
+  justify-content: center;
+  width: fit-content;
+}
+
+.account-card .feature-note {
+  margin: 16px 0 0;
+}
+
+/* QUESTS */
+
+.quest-intro {
+  padding: 30px;
+  border-radius: var(--radius);
+  background: var(--green-950);
+  color: white;
+}
+
+.quest-intro h2 {
+  margin: 15px 0 10px;
+  font-size: 1.6rem;
+}
+
+.quest-intro p {
+  max-width: 680px;
+  margin: 0;
+  color: #dce9df;
+  line-height: 1.7;
+}
+
+.quest-intro .section-label {
+  background: #254f3b;
+  color: var(--lime);
+}
+
+.quest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.quest-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+}
+
+.quest-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 13px 17px;
+  background: #edf4e9;
+  color: var(--green-800);
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.quest-card-content {
+  padding: 20px;
+}
+
+.quest-card-content h3 {
+  margin-bottom: 9px;
+  font-size: 1.05rem;
+}
+
+.quest-card-content p {
+  min-height: 65px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: .83rem;
+  line-height: 1.6;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.achievement-card {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+}
+
+.achievement-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: #edf4e9;
+  color: var(--green-800);
+  font-size: 1.4rem;
+}
+
+.achievement-card h3 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.achievement-card p {
+  min-height: 48px;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.6;
+}
+
+.progress-placeholder {
+  padding: 25px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+}
+
+.progress-placeholder-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.progress-placeholder-top h3 {
+  margin-bottom: 8px;
+}
+
+.progress-placeholder-top p {
+  max-width: 580px;
+  margin: 0;
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.6;
+}
+
+.progress-level {
+  padding: 9px 13px;
+  border-radius: 10px;
+  background: #edf4e9;
+  color: var(--green-800);
+  font-size: .8rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.progress-placeholder .progress-track {
+  margin-top: 25px;
+}
+
+.progress-placeholder .progress-fill {
+  width: 0;
+  height: 100%;
+  background: var(--green-700);
+}
+
+.progress-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+/* MOBILE LAYOUT */
+
+@media (max-width: 760px) {
+  .standard-page {
+    padding: 0 16px 35px;
+  }
+
+  .page-hero {
+    padding: 32px 0 24px;
+  }
+
+  .community-welcome {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 22px;
+    margin-bottom: 35px;
+  }
+
+  .guidelines-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .profile-activity-grid,
+  .quest-grid,
+  .achievement-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .account-forms {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .profile-activity-card {
+    min-height: 215px;
+    padding: 16px;
+  }
+
+  .quest-intro {
+    padding: 23px;
+  }
+
+  .quest-card-content {
+    padding: 15px;
+  }
+
+  .progress-placeholder {
+    padding: 19px;
+  }
+}
+
+@media (max-width: 420px) {
+  .guidelines-grid,
+  .profile-activity-grid,
+  .quest-grid,
+  .achievement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-activity-card {
+    min-height: 0;
+  }
+
+  .quest-card-content p,
+  .achievement-card p {
+    min-height: 0;
+  }
+
+  .progress-placeholder-top {
+    flex-direction: column;
+  }
+}
