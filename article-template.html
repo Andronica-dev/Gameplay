@@ -1,79 +1,186 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fafaf6">
-  <title>Lorem ipsum dolor sit amet | Gameplay</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read practical everyday sustainability articles on Gameplay.">
+  <title>Article Title | Gameplay</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .reading-topbar { height: 58px; display: grid; grid-template-columns: 42px 1fr 42px; align-items: center; padding: 0 16px; background: #fff; border-bottom: 1px solid var(--line); }
-    .reading-topbar a, .reading-topbar button { display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 50%; background: transparent; color: var(--green-950); text-decoration: none; font-size: 1.25rem; }
-    .reading-topbar a:hover, .reading-topbar button:hover { background: #eef4e8; }
-    .reading-topbar strong { text-align: center; font-size: .9rem; font-weight: 700; }
-    .reading-page { max-width: 760px; margin: 0 auto; padding: 26px 22px 60px; }
-    .reading-title { max-width: 700px; margin: 0 0 12px; font-size: clamp(1.8rem, 5vw, 2.65rem); line-height: 1.08; letter-spacing: -.055em; color: var(--ink); }
-    .reading-meta { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; margin-bottom: 18px; color: var(--muted); font-size: .72rem; }
-    .reading-category { color: var(--green-800); font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
-    .reading-hero { width: 100%; aspect-ratio: 16 / 9; min-height: 190px; border-radius: 12px; margin: 0 0 22px; background-position: center; background-size: cover; }
-    .reading-copy { max-width: 680px; margin: 0 auto; color: #303a34; font-size: 1rem; line-height: 1.75; }
-    .reading-copy p { margin: 0 0 18px; }
-    .reading-copy h2 { margin: 28px 0 10px; color: var(--green-950); font-size: 1.3rem; letter-spacing: -.03em; }
-    .reading-copy blockquote { margin: 24px 0; padding: 4px 0 4px 17px; border-left: 3px solid var(--green-500); color: var(--green-800); font-size: 1.08rem; font-weight: 600; }
-    .reading-end { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
-    @media (max-width: 640px) {
-      .reading-page { padding: 20px 16px 46px; }
-      .reading-title { font-size: 1.75rem; }
-      .reading-hero { aspect-ratio: 1.55 / 1; min-height: 170px; margin-bottom: 18px; }
-      .reading-copy { font-size: .96rem; line-height: 1.72; }
-    }
-  </style>
 </head>
-<body>
-  <div class="site-shell">
-    <header class="reading-topbar">
-      <a href="articles.html" aria-label="Back to articles" title="Back to articles">←</a>
-      <strong>Article</strong>
-      <button type="button" id="share-article" aria-label="Share article" title="Share article">↗</button>
-    </header>
-    <main class="reading-page">
-      <article>
-        <h1 class="reading-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
-        <div class="reading-meta">
-          <span>04 Nov 2026</span><span aria-hidden="true">·</span>
-          <span class="reading-category">Growing &amp; Greener Living</span><span aria-hidden="true">·</span>
-          <span>Gameplay Editorial</span>
-        </div>
-        <div class="reading-hero image-seedling" role="img" aria-label="Article image placeholder"></div>
-        <div class="reading-copy">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae justo at erat facilisis consequat. Donec sed neque vel sapien tincidunt interdum. Curabitur feugiat, nibh non posuere consequat, justo nulla gravida lectus, vitae tincidunt erat arcu a nisi.</p>
-          <p>Praesent at neque sed magna consequat tincidunt. Sed posuere, lectus vitae commodo interdum, justo augue tincidunt mauris, vitae feugiat erat nulla a augue. Vivamus ac lorem at erat consequat tincidunt. Duis at nibh non justo posuere consequat.</p>
-          <h2>Lorem ipsum dolor sit amet</h2>
-          <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla facilisi. Nam feugiat, mauris non dignissim malesuada, lectus erat posuere justo, sed tincidunt ipsum nibh sed arcu. Aliquam erat volutpat.</p>
-          <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</blockquote>
-          <p>Morbi vel lectus sed ipsum posuere viverra. Suspendisse potenti. Aenean euismod, sapien sed luctus tincidunt, neque justo varius erat, vitae posuere ipsum augue vitae lectus. Integer at lorem sed erat commodo consequat.</p>
-          <h2>Integer vitae justo</h2>
-          <p>Fusce ullamcorper, lectus non tincidunt consequat, sem neque malesuada arcu, at feugiat massa justo sed erat. Sed euismod magna vel libero interdum, sed interdum lectus pretium. Donec vitae neque sed erat posuere feugiat.</p>
-          <p>Etiam non magna sed lectus consequat consequat. Nulla facilisi. Cras a nibh vel erat blandit tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-          <div class="reading-end">End of placeholder article</div>
-        </div>
-      </article>
-    </main>
-    <footer class="site-footer">
-      <div class="footer-brand"><span class="brand-mark">↗</span><strong>Gameplay</strong></div>
-      <div class="footer-links"><a href="index.html">Home</a><a href="articles.html">All articles</a></div>
-    </footer>
-  </div>
-  <script>
-    const shareButton = document.getElementById('share-article');
-    shareButton.addEventListener('click', async () => {
-      const shareData = { title: document.title, url: window.location.href };
-      if (navigator.share) {
-        try { await navigator.share(shareData); } catch (error) { /* Share sheet dismissed. */ }
-      } else if (navigator.clipboard) {
-        try { await navigator.clipboard.writeText(window.location.href); shareButton.textContent = '✓'; } catch (error) { shareButton.textContent = '↗'; }
-      }
-    });
-  </script>
+
+<body class="article-page">
+
+  <header class="topbar article-topbar">
+    <a class="brand" href="index.html" aria-label="Gameplay home">
+      <span>Gameplay</span>
+    </a>
+
+    <button class="icon-button menu-toggle" id="menu-toggle"
+      type="button" aria-label="Open navigation" aria-expanded="false">
+      ☰
+    </button>
+  </header>
+
+  <main class="article-main">
+
+    <nav class="article-navigation" aria-label="Article navigation">
+      <a href="articles.html" class="back-link">
+        ← Back to Library
+      </a>
+
+      <button class="icon-button share-button" type="button"
+        aria-label="Share article" onclick="if (navigator.share) { navigator.share({ title: document.title, url: window.location.href }); } else { navigator.clipboard.writeText(window.location.href); this.textContent = 'Copied'; }">
+        ↗
+      </button>
+    </nav>
+
+    <article class="article-content">
+
+      <header class="article-header">
+        <p class="article-date">Date placeholder</p>
+
+        <h1>Article title placeholder</h1>
+
+        <a href="growing-greener-living.html"
+          class="category-tag category-growing">
+          Category placeholder
+        </a>
+      </header>
+
+      <div class="article-featured-image image-seedling"
+        role="img" aria-label="Article featured image placeholder">
+      </div>
+
+      <div class="article-body">
+        <p class="placeholder-text">
+          Article introduction placeholder. Add your own article introduction here.
+        </p>
+
+        <h2>Article section heading placeholder</h2>
+
+        <p class="placeholder-text">
+          Article content placeholder. Add your own writing here.
+        </p>
+
+        <h2>Article section heading placeholder</h2>
+
+        <p class="placeholder-text">
+          Article content placeholder. Add your own writing here.
+        </p>
+
+        <h2>Final thoughts</h2>
+
+        <p class="placeholder-text">
+          Article conclusion placeholder. Add your own conclusion here.
+        </p>
+      </div>
+
+      <div class="article-actions">
+        <button class="save-button" type="button" disabled
+          aria-label="Save article">
+          ♡ Save article
+        </button>
+        <p class="feature-note">
+          Saving articles will be enabled when account functionality is connected.
+        </p>
+      </div>
+
+    </article>
+
+    <section class="comments-section">
+      <div class="section-heading">
+        <h2>Join the discussion</h2>
+        <p>Share your thoughts about this article.</p>
+      </div>
+
+      <div class="comments-placeholder">
+        <p>Comments will appear here.</p>
+        <p class="feature-note">
+          Comments will be available when community functionality is connected.
+        </p>
+      </div>
+    </section>
+
+    <section class="related-articles">
+      <div class="section-heading">
+        <h2>Keep exploring</h2>
+        <p>Related articles placeholder</p>
+      </div>
+
+      <div class="article-grid">
+
+        <article class="article-card">
+          <a href="article-template.html"
+            class="card-image image-solar"
+            aria-label="Open related article placeholder"></a>
+
+          <div class="card-body">
+            <a href="energy-water-smarts.html"
+              class="category-tag category-energy">
+              Energy & Water Smarts
+            </a>
+
+            <h3 class="card-title">
+              <a href="article-template.html">Article title placeholder</a>
+            </h3>
+
+            <p class="card-summary">Article summary placeholder.</p>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <a href="article-template.html"
+            class="card-image image-water"
+            aria-label="Open related article placeholder"></a>
+
+          <div class="card-body">
+            <a href="waste-less.html"
+              class="category-tag category-waste">
+              Waste Less
+            </a>
+
+            <h3 class="card-title">
+              <a href="article-template.html">Article title placeholder</a>
+            </h3>
+
+            <p class="card-summary">Article summary placeholder.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <a class="footer-brand" href="index.html">Gameplay</a>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="articles.html">Library</a>
+        <a href="quests.html">Quests</a>
+        <a href="community.html">Community</a>
+        <a href="profile.html">Profile</a>
+      </nav>
+
+      <div class="footer-categories">
+        <a href="growing-greener-living.html">Growing & Greener Living</a>
+        <a href="energy-water-smarts.html">Energy & Water Smarts</a>
+        <a href="waste-less.html">Waste Less</a>
+        <a href="smarter-spending.html">Smarter Spending</a>
+        <a href="food-everyday-eating.html">Food & Everyday Eating</a>
+        <a href="mind-wellbeing.html">Mind & Wellbeing</a>
+      </div>
+
+      <p class="footer-copyright">
+        © Gameplay. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
