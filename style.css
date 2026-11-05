@@ -829,4 +829,351 @@ h2 {
     transition-duration: .01ms !important;
   }
 }
+/* =========================================
+   GAMEPLAY LAYOUT CORRECTIONS
+   ========================================= */
+
+/* Keep page content aligned consistently */
+.site-shell {
+  width: min(100%, 1100px);
+  margin-inline: auto;
+}
+
+/* Prevent images inside article links from collapsing */
+.card-image {
+  display: block;
+  width: 100%;
+}
+
+/* =========================================
+   CATEGORY PAGE LAYOUT
+   ========================================= */
+
+.category-hero {
+  padding: 22px 24px 10px;
+}
+
+.category-banner {
+  display: block;
+  width: 100%;
+  height: 280px;
+  min-height: 0;
+  margin: 0;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+}
+
+.category-heading {
+  max-width: 760px;
+  margin: 22px auto 0;
+  padding: 0 4px;
+}
+
+.category-heading .eyebrow {
+  display: none;
+}
+
+.category-heading h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.category-description {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Articles section on category pages */
+.library-section {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.library-section .section-heading {
+  margin-bottom: 10px;
+}
+
+.library-section .section-heading h2 {
+  font-size: 1.25rem;
+}
+
+/* Narrow, centred category search */
+.library-section .search-panel {
+  width: min(100%, 560px);
+  margin: 0 auto 20px;
+  padding: 8px 0 16px;
+}
+
+.library-section .search-panel input {
+  width: 100%;
+  flex: 1;
+  min-height: 48px;
+}
+
+/* Keep article cards inside the page gutters */
+.library-section .article-grid {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0 30px;
+}
+
+/* =========================================
+   LIBRARY PAGE ALIGNMENT
+   ========================================= */
+
+.page-heading {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.page-heading .search-bar {
+  width: min(100%, 560px);
+  margin-top: 18px;
+}
+
+.page-heading .search-bar input {
+  width: 100%;
+}
+
+/* =========================================
+   CATEGORY LABEL BUTTONS
+   ========================================= */
+
+a.category-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+a.category-tag:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* =========================================
+   ARTICLE READING PAGE
+   ========================================= */
+
+.article-main {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+.article-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+}
+
+.article-navigation .back-link {
+  margin: 0;
+}
+
+.article-content {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.article-header {
+  padding: 22px 0;
+}
+
+.article-date {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.article-header h1 {
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+}
+
+.article-featured-image {
+  width: 100%;
+  min-height: 360px;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+}
+
+.article-body {
+  max-width: 700px;
+  margin: 32px auto;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.article-body h2 {
+  margin: 32px 0 12px;
+  color: var(--green-950);
+  font-size: 1.45rem;
+}
+
+.article-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.save-button {
+  padding: 11px 16px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: white;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.save-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.feature-note {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.comments-section,
+.related-articles {
+  max-width: 820px;
+  margin: 40px auto 0;
+}
+
+.comments-section .section-heading,
+.related-articles .section-heading {
+  display: block;
+}
+
+.comments-section .section-heading p,
+.related-articles .section-heading p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.comments-placeholder {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: white;
+}
+
+.related-articles .article-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* =========================================
+   FOOTER CONSISTENCY
+   ========================================= */
+
+.footer-content {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.footer-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 16px 0;
+}
+
+.footer-categories a {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.footer-categories a:hover {
+  color: var(--green-800);
+}
+
+/* =========================================
+   MOBILE ADJUSTMENTS
+   ========================================= */
+
+@media (max-width: 760px) {
+  .category-hero {
+    padding: 16px 16px 6px;
+  }
+
+  .category-banner {
+    height: 190px;
+    border-radius: 14px;
+  }
+
+  .category-heading {
+    margin-top: 18px;
+  }
+
+  .category-heading h1 {
+    font-size: 2rem;
+  }
+
+  .library-section {
+    padding: 20px 16px;
+  }
+
+  .library-section .search-panel {
+    width: min(100%, 480px);
+  }
+
+  .page-heading {
+    padding: 26px 16px 18px;
+  }
+
+  .article-main {
+    padding: 0 16px 30px;
+  }
+
+  .article-featured-image {
+    min-height: 220px;
+  }
+
+  .article-body {
+    margin: 24px auto;
+  }
+
+  .comments-section,
+  .related-articles {
+    margin-top: 30px;
+  }
+
+  .related-articles .article-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 380px) {
+  .related-articles .article-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-banner {
+    height: 160px;
+  }
+}
 
