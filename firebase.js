@@ -323,68 +323,7 @@ async function buildDiscussionCard(documentSnapshot, renderVersion) {
 
   return card;
 }
-  const discussion = documentSnapshot.data();
-  const discussionId = documentSnapshot.id;
-  const card = document.createElement("article");
-  card.className = "discussion-card";
-
-  const author = await getDisplayName(discussion.creatorId);
-  card.appendChild(makeTextElement("p", "discussion-meta", `${author} · ${formatDate(discussion.createdAt)}`));
-  card.appendChild(makeTextElement("h3", "discussion-title", discussion.title));
-  card.appendChild(makeTextElement("p", "discussion-content", discussion.content));
-
-  const repliesHeading = makeTextElement("h4", "replies-heading", "Replies");
-  const repliesElement = document.createElement("div");
-  repliesElement.className = "discussion-replies";
-  card.append(repliesHeading, repliesElement);
-  renderReplies(discussionId, repliesElement);
-
-  if (communityUser) {
-    const replyForm = document.createElement("form");
-    replyForm.className = "reply-form";
-
-    const replyInput = document.createElement("textarea");
-    replyInput.name = "reply";
-    replyInput.rows = 2;
-    replyInput.maxLength = 5000;
-    replyInput.placeholder = "Write a helpful reply...";
-    replyInput.required = true;
-    replyInput.setAttribute("aria-label", "Your reply");
-
-    const replyButton = document.createElement("button");
-    replyButton.type = "submit";
-    replyButton.className = "primary-button";
-    replyButton.textContent = "Post reply";
-
-    replyForm.append(replyInput, replyButton);
-    replyForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const content = replyInput.value.trim();
-      if (!content || !communityUser) return;
-
-      replyButton.disabled = true;
-      try {
-        await addDoc(collection(db, "discussions", discussionId, "replies"), {
-          authorId: communityUser.uid,
-          content,
-          createdAt: serverTimestamp()
-        });
-        replyForm.reset();
-      } catch (error) {
-        showMessage(discussionMessage, friendlyError(error), true);
-      } finally {
-        replyButton.disabled = false;
-      }
-    });
-
-    card.appendChild(replyForm);
-  } else {
-    card.appendChild(makeTextElement("p", "reply-signin-note", "Sign in to reply to this discussion."));
-  }
-
-  return card;
-}
-
+  
 // COMMUNITY: one central discussion renderer.
 let latestDiscussionDocs = [];
 let discussionRenderVersion = 0;
