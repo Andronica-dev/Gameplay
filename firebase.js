@@ -93,10 +93,18 @@ if (signupForm) {
       signupForm.reset();
       showMessage(authMessage, "Your Gameplay account has been created.");
     } catch (error) {
-      showMessage(authMessage, friendlyError(error), true);
-    } finally {
-      submitButton.disabled = false;
-    }
+  const detail = `Firebase error: ${error.code || "unknown"} — ${error.message || "No message returned."}`;
+
+  showMessage(authMessage, detail, true);
+
+  if (profileStatus) {
+    profileStatus.textContent = detail;
+  }
+
+  console.error("Gameplay signup error:", error);
+} finally {
+  submitButton.disabled = false;
+}
   });
 }
 
