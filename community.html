@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,53 +6,53 @@
   <meta name="description" content="Join the Gameplay community to share ideas, ask questions and discuss practical everyday sustainability.">
   <title>Community | Gameplay</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="firebase-additions.css">
 </head>
-
 <body>
-
   <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Gameplay home">
-      <span>Gameplay</span>
-    </a>
-
-    <button class="icon-button menu-toggle" id="menu-toggle"
-      type="button" aria-label="Open navigation" aria-expanded="false">
-      ☰
-    </button>
+    <a class="brand" href="index.html" aria-label="Gameplay home"><span>Gameplay</span></a>
+    <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
   </header>
 
   <main class="standard-page community-page">
-
     <section class="page-hero">
       <p class="eyebrow">Better together</p>
       <h1>Community</h1>
-      <p>
-        Share what works, ask questions and learn from the experiences
-        of people making everyday life a little better.
-      </p>
+      <p>Share what works, ask questions and learn from the experiences of people making everyday life a little better.</p>
     </section>
 
     <section class="community-welcome">
       <div>
         <p class="eyebrow">The conversation starts here</p>
         <h2>Small ideas can make a difference.</h2>
-        <p>
-          Whether you've found a way to save electricity, stretch your
-          budget or reduce waste, this is a space to exchange practical
-          ideas and learn from one another.
-        </p>
+        <p>Whether you've found a way to save electricity, stretch your budget or reduce waste, this is a space to exchange practical ideas and learn from one another.</p>
       </div>
-
       <div class="community-action">
-        <span class="community-status">Discussions coming soon</span>
-        <button class="primary-button" type="button" disabled>
-          Start a discussion
-        </button>
-        <p class="feature-note">
-          Discussion posting will be available once community functionality
-          is connected.
-        </p>
+        <span class="community-status" id="community-user-status">Checking sign-in status...</span>
+        <p id="community-signin-notice" hidden>You can read discussions as a guest. <a href="profile.html">Sign in or create an account</a> to post and reply.</p>
       </div>
+    </section>
+
+    <section class="community-form-section" id="discussion-form-section" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Start a conversation</p>
+          <h2>Share an idea or ask a question</h2>
+          <p>Keep it practical, respectful and useful to other members.</p>
+        </div>
+      </div>
+      <form id="discussion-form" class="discussion-form">
+        <div class="form-group">
+          <label for="discussion-title">Discussion title</label>
+          <input id="discussion-title" name="title" type="text" maxlength="120" placeholder="What would you like to discuss?" required>
+        </div>
+        <div class="form-group">
+          <label for="discussion-content">Your discussion</label>
+          <textarea id="discussion-content" name="content" rows="5" maxlength="10000" placeholder="Share the details..." required></textarea>
+        </div>
+        <button class="primary-button" type="submit">Post discussion</button>
+        <p id="discussion-message" class="firebase-message" role="status" aria-live="polite" hidden></p>
+      </form>
     </section>
 
     <section class="community-discussions">
@@ -64,14 +63,13 @@
           <p>Questions, ideas and experiences shared by the community.</p>
         </div>
       </div>
-
-      <div class="community-empty">
+      <div id="no-discussions" class="community-empty" hidden>
         <div class="community-empty-icon" aria-hidden="true">✳</div>
         <h3>No discussions yet</h3>
-        <p>
-          This space is being prepared. Once discussions are enabled,
-          community conversations will appear here.
-        </p>
+        <p>Be the first to start a useful conversation.</p>
+      </div>
+      <div id="discussions-list" class="discussions-list" aria-live="polite">
+        <p class="discussion-loading">Loading community discussions...</p>
       </div>
     </section>
 
@@ -83,48 +81,21 @@
           <p>A few simple principles to keep conversations useful and welcoming.</p>
         </div>
       </div>
-
       <div class="guidelines-grid">
-        <article class="guideline-card">
-          <span class="guideline-number">01</span>
-          <h3>Respect each other</h3>
-          <p>People have different experiences, budgets and circumstances. Treat them with respect.</p>
-        </article>
-
-        <article class="guideline-card">
-          <span class="guideline-number">02</span>
-          <h3>Keep it constructive</h3>
-          <p>Focus on useful conversations, practical ideas and solutions.</p>
-        </article>
-
-        <article class="guideline-card">
-          <span class="guideline-number">03</span>
-          <h3>Share responsibly</h3>
-          <p>Be honest about what has worked for you. Avoid presenting guesses as facts.</p>
-        </article>
-
-        <article class="guideline-card">
-          <span class="guideline-number">04</span>
-          <h3>Protect your privacy</h3>
-          <p>Don't share passwords, private contact details or sensitive personal information.</p>
-        </article>
+        <article class="guideline-card"><span class="guideline-number">01</span><h3>Respect each other</h3><p>People have different experiences, budgets and circumstances. Treat them with respect.</p></article>
+        <article class="guideline-card"><span class="guideline-number">02</span><h3>Keep it constructive</h3><p>Focus on useful conversations, practical ideas and solutions.</p></article>
+        <article class="guideline-card"><span class="guideline-number">03</span><h3>Share responsibly</h3><p>Be honest about what has worked for you. Avoid presenting guesses as facts.</p></article>
+        <article class="guideline-card"><span class="guideline-number">04</span><h3>Protect your privacy</h3><p>Don't share passwords, private contact details or sensitive personal information.</p></article>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
     <div class="footer-content">
       <a class="footer-brand" href="index.html">Gameplay</a>
-
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="index.html">Home</a>
-        <a href="articles.html">Library</a>
-        <a href="quests.html">Quests</a>
-        <a href="community.html">Community</a>
-        <a href="profile.html">Profile</a>
+        <a href="index.html">Home</a><a href="articles.html">Library</a><a href="quests.html">Quests</a><a href="community.html">Community</a><a href="profile.html">Profile</a>
       </nav>
-
       <div class="footer-categories">
         <a href="growing-greener-living.html">Growing & Greener Living</a>
         <a href="energy-water-smarts.html">Energy & Water Smarts</a>
@@ -133,14 +104,11 @@
         <a href="food-everyday-eating.html">Food & Everyday Eating</a>
         <a href="mind-wellbeing.html">Mind & Wellbeing</a>
       </div>
-
-      <p class="footer-copyright">
-        © Gameplay. All rights reserved.
-      </p>
+      <p class="footer-copyright">© Gameplay. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <script type="module" src="firebase.js"></script>
 </body>
 </html>
-
