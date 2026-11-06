@@ -186,6 +186,47 @@ const discussionFormSection = document.querySelector("#discussion-form-section")
 let communityUser = null;
 let replyUnsubscribers = [];
 
+// Create a new discussion.
+if (discussionForm) {
+  discussionForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!communityUser) {
+      showMessage(discussionMessage, "Please sign in to start a discussion.", true);
+      return;
+    }
+
+    const title = discussionTitle.value.trim();
+    const content = discussionContent.value.trim();
+
+    if (!title || !content) {
+      showMessage(discussionMessage, "Please complete both fields.", true);
+      return;
+    }
+
+    const submitButton = discussionForm.querySelector("button[type='submit']");
+    submitButton.disabled = true;
+    showMessage(discussionMessage, "");
+
+    try {
+      await addDoc(collection(db, "discussions"), {
+        creatorId: communityUser.uid,
+        title,
+        content,
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp()
+      });
+
+      discussionForm.reset();
+      showMessage(discussionMessage, "Your discussion has been posted.");
+    } catch (error) {
+      showMessage(discussionMessage, friendlyError(error), true);
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+}
+
 if (discussionForm) {
   discussionForm.addEventListener("submit", async (event) => {
     event.preventDefault();
