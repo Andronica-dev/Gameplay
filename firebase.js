@@ -250,7 +250,79 @@ function renderReplies(discussionId, repliesElement) {
   replyUnsubscribers.push(unsubscribe);
 }
 
-async function buildDiscussionCard(documentSnapshot) {
+async function buildDiscussionCard(documentSnapshot, renderVersion) {
+  const discussion = documentSnapshot.data();
+  const discussionId = documentSnapshot.id;
+  const card = document.createElement("article");
+  card.className = "discussion-card";
+
+  const author = await getDisplayName(discussion.creatorId);
+
+  // Stop outdated rendering processes from adding duplicate cards.
+  if (renderVersion !== discussionRenderVersion) return null;
+
+  card.appendChild(makeTextElement("p", "discussion-meta", `${author} · ${formatDate(discussion.createdAt)}`));
+  card.appendChild(makeTextElement("h3", "discussion-title", discussion.title));
+  card.appendChild(makeTextElement("p", "discussion-content", discussion.content));
+
+  const repliesHeading = makeTextElement("h4", "replies-heading", "Replies");
+  const repliesElement = document.createElement("div");
+  repliesElement.className = "discussion-replies";
+
+  card.append(repliesHeading, repliesElement);
+  renderReplies(discussionId, repliesElement);
+
+  if (communityUser) {
+    const replyForm = document.createElement("form");
+    replyForm.className = "reply-form";
+
+    const replyInput = document.createElement("textarea");
+    replyInput.name = "reply";
+    replyInput.rows = 2;
+    replyInput.maxLength = 5000;
+    replyInput.placeholder = "Write a helpful reply...";
+    replyInput.required = true;
+    replyInput.setAttribute("aria-label", "Your reply");
+
+    const replyButton = document.createElement("button");
+    replyButton.type = "submit";
+    replyButton.className = "primary-button";
+    replyButton.textContent = "Post reply";
+
+    replyForm.append(replyInput, replyButton);
+
+    replyForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const content = replyInput.value.trim();
+      if (!content || !communityUser) return;
+
+      replyButton.disabled = true;
+
+      try {
+        await addDoc(collection(db, "discussions", discussionId, "replies"), {
+          authorId: communityUser.uid,
+          content,
+          createdAt: serverTimestamp()
+        });
+
+        replyForm.reset();
+      } catch (error) {
+        showMessage(discussionMessage, friendlyError(error), true);
+      } finally {
+        replyButton.disabled = false;
+      }
+    });
+
+    card.appendChild(replyForm);
+  } else {
+    card.appendChild(
+      makeTextElement("p", "reply-signin-note", "Sign in to reply to this discussion.")
+    );
+  }
+
+  return card;
+}
   const discussion = documentSnapshot.data();
   const discussionId = documentSnapshot.id;
   const card = document.createElement("article");
@@ -313,23 +385,48 @@ async function buildDiscussionCard(documentSnapshot) {
   return card;
 }
 
+// COMMUNITY: one central discussion renderer.
+let latestDiscussionDocs = [];
+let discussionRenderVersion = 0;
+
+async function renderDiscussionList(documents) {
+  if (!discussionsList) return;
+
+  const renderVersion = ++discussionRenderVersion;
+
+  clearReplyListeners();
+  discussionsList.replaceChildren();
+
+  const emptyMessage = document.querySelector("#no-discussions");
+
+  if (emptyMessage) {
+    emptyMessage.hidden = documents.length !== 0;
+  }
+
+  for (const discussionDocument of documents) {
+    const card = await buildDiscussionCard(
+      discussionDocument,
+      renderVersion
+    );
+
+    if (renderVersion !== discussionRenderVersion) return;
+
+    if (card) {
+      discussionsList.appendChild(card);
+    }
+  }
+}
+
 const discussionsQuery = query(
   collection(db, "discussions"),
   orderBy("createdAt", "desc")
 );
 
+// This is the ONLY listener that fetches discussion updates.
 if (discussionsList) {
-  onSnapshot(discussionsQuery, async (snapshot) => {
-    clearReplyListeners();
-    discussionsList.replaceChildren();
-
-    const emptyMessage = document.querySelector("#no-discussions");
-    if (emptyMessage) emptyMessage.hidden = !snapshot.empty;
-
-    for (const discussionDocument of snapshot.docs) {
-      const card = await buildDiscussionCard(discussionDocument);
-      discussionsList.appendChild(card);
-    }
+  onSnapshot(discussionsQuery, (snapshot) => {
+    latestDiscussionDocs = snapshot.docs;
+    renderDiscussionList(latestDiscussionDocs);
   }, (error) => {
     discussionsList.replaceChildren(
       makeTextElement("p", "firebase-message-error", friendlyError(error))
@@ -337,75 +434,26 @@ if (discussionsList) {
   });
 }
 
-if (discussionForm) {
-  discussionForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    showMessage(discussionMessage, "");
-
-    if (!communityUser) {
-      showMessage(discussionMessage, "Please sign in before starting a discussion.", true);
-      return;
-    }
-
-    const title = discussionTitle.value.trim();
-    const content = discussionContent.value.trim();
-
-    if (!title || title.length > 120 || !content || content.length > 10000) {
-      showMessage(discussionMessage, "Please add a title (up to 120 characters) and discussion text (up to 10,000 characters).", true);
-      return;
-    }
-
-    const submitButton = discussionForm.querySelector("button[type='submit']");
-    submitButton.disabled = true;
-
-    try {
-      await addDoc(collection(db, "discussions"), {
-        creatorId: communityUser.uid,
-        title,
-        content,
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp()
-      });
-      discussionForm.reset();
-      showMessage(discussionMessage, "Your discussion has been posted.");
-    } catch (error) {
-      showMessage(discussionMessage, friendlyError(error), true);
-    } finally {
-      submitButton.disabled = false;
-    }
-  });
-}
-
+// Update access and redraw the existing discussions on login/logout.
+// Do not fetch discussions a second time.
 onAuthStateChanged(auth, (user) => {
   communityUser = user;
 
-  if (communitySignInNotice) communitySignInNotice.hidden = Boolean(user);
-  if (discussionFormSection) discussionFormSection.hidden = !user;
+  if (communitySignInNotice) {
+    communitySignInNotice.hidden = Boolean(user);
+  }
+
+  if (discussionFormSection) {
+    discussionFormSection.hidden = !user;
+  }
+
   if (communityUserStatus) {
     communityUserStatus.textContent = user
       ? "Signed in — you can start a discussion and reply."
       : "Browsing as a guest. Sign in to post or reply.";
   }
 
-  // Rebuild discussion cards so reply forms match the current sign-in state.
   if (discussionsList) {
-    clearReplyListeners();
-    const refreshQuery = query(
-      collection(db, "discussions"),
-      orderBy("createdAt", "desc")
-    );
-
-    import("https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js")
-      .then(({ getDocs }) => getDocs(refreshQuery))
-      .then(async (snapshot) => {
-        discussionsList.replaceChildren();
-        const emptyMessage = document.querySelector("#no-discussions");
-        if (emptyMessage) emptyMessage.hidden = !snapshot.empty;
-        for (const discussionDocument of snapshot.docs) {
-          const card = await buildDiscussionCard(discussionDocument);
-          discussionsList.appendChild(card);
-        }
-      })
-      .catch(() => {});
+    renderDiscussionList(latestDiscussionDocs);
   }
 });
