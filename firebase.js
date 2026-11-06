@@ -22,7 +22,7 @@ import {
 
 // Gameplay Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAdukavbQkCVFbqHThXypOORWSxgTtEQAU",
+  apiKey: "AIzaSyAdukavbQkCVFbQhXTXypOORWSxgTtEQAU",
   authDomain: "gameplay-89d5e.firebaseapp.com",
   projectId: "gameplay-89d5e",
   storageBucket: "gameplay-89d5e.firebasestorage.app",
