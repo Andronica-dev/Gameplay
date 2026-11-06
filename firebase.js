@@ -190,6 +190,8 @@ let replyUnsubscribers = [];
 if (discussionForm) {
   discussionForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+console.count("Discussion form submitted");
+console.trace("Discussion submission trace");
 
     if (!communityUser) {
       showMessage(discussionMessage, "Please sign in to start a discussion.", true);
